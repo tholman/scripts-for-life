@@ -1,4 +1,4 @@
-#Scripts for an easy life
+#Simple shell scripts, for a simple life
 
 A few bash shells scripts I use to make life easier. Add this repository to your PATH for easy access.
 
