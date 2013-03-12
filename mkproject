@@ -1,0 +1,63 @@
+#!/bin/sh
+
+# Ensure a name parameter has been provided
+if [ $# -eq 0 ]
+  then
+    echo "Please provide a project name"
+    exit 1
+fi
+
+# Save project name
+PROJECT_NAME="$1"
+
+# CSS + JS CONTENT
+function ACTIVE_BODY
+{
+    echo "/*!
+ * $PROJECT_NAME
+ *
+ * MIT licensed
+ * Copyright (C) 2013 Tim Holman, http://tholman.com
+ */
+
+/*********************************************
+ *
+ *********************************************/"
+}
+
+# HTML CONTENT
+function HTML_BODY
+{
+    echo "<!doctype html>
+<html>
+    <head>
+        <title> $PROJECT_NAME </title>
+
+        <!-- CSS -->
+        <link href='./css/styles.css' rel='stylesheet'>
+
+        <!-- JS -->
+        <script src='js/$PROJECT_NAME.js'></script>
+    </head>
+    <body>
+    </body>
+</html>"
+}
+
+
+# Create The directories
+mkdir -p "$PROJECT_NAME"
+mkdir -p "$PROJECT_NAME/js"
+mkdir -p "$PROJECT_NAME/css"
+
+# CSS
+touch "$PROJECT_NAME/css/styles.css"
+ACTIVE_BODY > "$PROJECT_NAME/css/styles.css"
+
+# JS
+touch "$PROJECT_NAME/js/$PROJECT_NAME.js"
+ACTIVE_BODY > "$PROJECT_NAME/js/$PROJECT_NAME.js"
+
+# # INDEX
+touch "$PROJECT_NAME/index.html"
+HTML_BODY > "$PROJECT_NAME/index.html"
