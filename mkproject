@@ -34,7 +34,7 @@ function HTML_BODY
         <title> $PROJECT_NAME </title>
 
         <!-- CSS -->
-        <link href='./css/styles.css' rel='stylesheet'>
+        <link href='./css/styles.scss' rel='stylesheet'>
 
         <!-- JS -->
         <script src='js/$PROJECT_NAME.js'></script>
@@ -44,19 +44,33 @@ function HTML_BODY
 </html>"
 }
 
+function JS_BODY
+{
+    echo "
+function app() {
+
+    this.init = function() {
+
+    }
+
+}"
+}
+
 
 # Create The directories
 mkdir -p "$PROJECT_NAME"
 mkdir -p "$PROJECT_NAME/js"
+mkdir -p "$PROJECT_NAME/scss"
 mkdir -p "$PROJECT_NAME/css"
 
 # CSS
 touch "$PROJECT_NAME/css/styles.css"
-ACTIVE_BODY > "$PROJECT_NAME/css/styles.css"
+ACTIVE_BODY > "$PROJECT_NAME/scss/styles.scss"
 
 # JS
 touch "$PROJECT_NAME/js/$PROJECT_NAME.js"
 ACTIVE_BODY > "$PROJECT_NAME/js/$PROJECT_NAME.js"
+JS_BODY >> "$PROJECT_NAME/js/$PROJECT_NAME.js"
 
 # # INDEX
 touch "$PROJECT_NAME/index.html"
