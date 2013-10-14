@@ -1,3 +1,2 @@
 #! /bin/sh
 python -m SimpleHTTPServer
-# sass --watch scss:css

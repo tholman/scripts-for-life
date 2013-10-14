@@ -34,7 +34,7 @@ function HTML_BODY
         <title> $PROJECT_NAME </title>
 
         <!-- CSS -->
-        <link href='./css/styles.scss' rel='stylesheet'>
+        <link href='./css/styles.css' rel='stylesheet'>
 
         <!-- JS -->
         <script src='js/$PROJECT_NAME.js'></script>
